@@ -7,6 +7,17 @@ No abstractions you didn't ask for, no bloated dependencies — just sharp algor
 
 Built for hackers, embedded engineers, and anyone who actually knows what a Nyquist frequency is.
 
+- [RAWDSP ⚡](#rawdsp-)
+  - [What's Inside](#whats-inside)
+  - [API: Functions (by header)](#api-functions-by-header)
+  - [Build It](#build-it)
+    - [`T_fun` — default precision type](#t_fun--default-precision-type)
+  - [Use It](#use-it)
+  - [GUI Data Visualizer](#gui-data-visualizer)
+  - [Bash script to run all test](#bash-script-to-run-all-test)
+  - [Contribute](#contribute)
+
+
 ---
 
 ## What's Inside
@@ -20,7 +31,7 @@ Built for hackers, embedded engineers, and anyone who actually knows what a Nyqu
 <!-- | 📡 **FFT / IFFT**                | Fast Fourier Transform, forward and inverse. No magic, just math    | -->
 
 
-### API: Functions (by header)
+## API: Functions (by header)
 
 | Header | Function | Description |
 | --- | --- | --- |
