@@ -13,6 +13,7 @@ Built for hackers, embedded engineers, and anyone who actually knows what a Nyqu
   - [Build It](#build-it)
     - [`T_fun` — default precision type](#t_fun--default-precision-type)
   - [Use It](#use-it)
+    - [CMakeLists.txt example](#cmakeliststxt-example)
   - [GUI Data Visualizer](#gui-data-visualizer)
   - [Bash script to run all test](#bash-script-to-run-all-test)
   - [Contribute](#contribute)
@@ -116,6 +117,47 @@ int main(int argc, char const *argv[])
     return 0;
 }
 ```
+
+### CMakeLists.txt example
+
+Suppose to have the project organized as follows:
+```
+.
+├── CMakeLists.txt
+├── lib
+│   └── rawdsp-main
+│       ├── CMakeLists.txt
+│       ├── include
+│       ├── python
+│       ├── README.md
+│       ├── run_all_test.sh
+│       ├── src
+│       └── tests
+├── README.md
+└── src
+    └── main.cpp
+```
+
+To integrate the library in the project, you can start from the following example of  `CMakeLists.txt`
+```cmake
+cmake_minimum_required(VERSION 3.10)
+project(Example)
+
+# rawdsp library is written in C++20, so we need to set the standard for the whole project
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Include the rawdsp library
+add_library(rawdsp STATIC lib/rawdsp-main/include/rawdsp.hpp)
+set_target_properties(rawdsp PROPERTIES LINKER_LANGUAGE CXX)
+target_include_directories(rawdsp PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/lib/rawdsp-main/include)
+
+# Create the example executable and link it with the rawdsp library
+add_executable(example src/main.cpp)
+target_include_directories(example PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(example PRIVATE rawdsp)
+```
+
 
 
 ## GUI Data Visualizer
