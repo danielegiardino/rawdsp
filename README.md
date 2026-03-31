@@ -148,9 +148,9 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Include the rawdsp library
-add_library(rawdsp STATIC lib/rawdsp-main/include/rawdsp.hpp)
+add_library(rawdsp STATIC lib/rawdsp/include/rawdsp.hpp)
 set_target_properties(rawdsp PROPERTIES LINKER_LANGUAGE CXX)
-target_include_directories(rawdsp PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/lib/rawdsp-main/include)
+target_include_directories(rawdsp PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/lib/rawdsp/include)
 
 # Create the example executable and link it with the rawdsp library
 add_executable(example src/main.cpp)
